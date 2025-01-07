@@ -1,6 +1,12 @@
 
+
+
 import Hero from './Hero';
-import Nav from './Nav'
+import Nav from './Nav';
+
+
+
+
 
 
 
@@ -15,7 +21,13 @@ function Header() {
         </div>
         <div class="navHolder">
 
-<Nav />
+
+
+         <Nav/>
+
+
+
+
         </div>
       </div>
      <Hero />

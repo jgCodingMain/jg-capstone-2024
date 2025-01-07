@@ -7,15 +7,10 @@ function Main() {
 
     return (
         <main>
-<Routes> 
-    <Route path="/" element={<HomePage />}></Route>
-    <Route path="/booking" element={<BookingPage />}></Route>
-</Routes>
+
           <Specials />
            <Reviews />
            <About />
-
-
 
         </main>
     );
