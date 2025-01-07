@@ -5,6 +5,7 @@ function Nav() {
 
 
 
+
         <nav>
             <ul>
               <li><a href="/">Home</a></li>
@@ -15,8 +16,6 @@ function Nav() {
               <li><a href="/contact">Contact</a></li>
             </ul>
           </nav>
-
-
 
 
 
