@@ -6,17 +6,14 @@ body {
   line-height: 1.5;
   color: #333
 }
-
-* {
+ * {
   box-sizing: border-box;
-  font-size: 1em
+  font-size: 1em;
 }
-
-:root {
-  box-sizing: border-box
+ :root {
+  box-sizing: border-box;
 }
-
-h1,
+ h1,
 h2,
 h3,
 h4 {
@@ -24,46 +21,38 @@ h4 {
   padding: 0;
   margin: 0
 }
-
-h1 {
+ h1 {
   color: #f4ce14;
   font-size: 64px;
   font-weight: 500
 }
-
-h3 {
+ h3 {
   color: fff;
   font-size: 40px;
   font-weight: 500
 }
-
-p {
+ p {
   font-family: Karla;
   font-size: 1.4rem;
   margin: 0;
   padding: 0
 }
-
-.container {
+ .container {
   padding: 0
 }
-
-nav {
+ nav {
   padding: 0
 }
-
-main {
+ main {
   background-color: #fff
 }
-
-footer {
+ footer {
   background-color: #f7f380;
   grid-area: footer;
   display: grid;
   grid-template-rows: auto
 }
-
-.container {
+ .container {
   display: grid;
   grid-template-areas: "header header header header header header header header header header header header" "nav nav nav nav nav nav nav nav nav nav nav nav" "main main main main main main main main main main main main" "footer footer footer footer footer footer footer footer footer footer footer footer ";
   grid-template-columns: repeat(12, 100px);
@@ -72,98 +61,75 @@ footer {
   margin-right: 70px;
   column-gap: 10px
 }
-
-header {
+ header {
   grid-area: header;
   display: grid;
   grid-template-rows: auto
 }
-
-.logo {
+ .logo {
   grid-column: 1/span 4;
   display: grid;
   padding: 1em
 }
-
-.logo img {
+ .logo img {
   justify-self: end
 }
-
-.navHolder {
+ .navHolder {
   grid-column: 6/span 12
 }
-
-nav {
+ nav {
   grid-area: nav
 }
-
-nav ul {
+ nav ul {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-right: 200px
 }
-
-nav li {
+ nav li {
   padding: 1em;
   text-align: center;
   font-size: 18px;
   font-family: Karla, sans-serif;
   font-weight: 700
 }
-
-nav li a {
+ nav li a {
   text-decoration: none;
   color: #000
 }
-
-nav li a:hover {
+ nav li a:hover {
   border-bottom: 2px solid #000;
   transition: .2s
 }
-.selected {
-  background-color: #f4ce14;
-  border: 1px solid #000;
-  transition: .2s;
-  padding: 8px;
-  border-radius: 12px;
-}
-
-.gridParentContainer {
+ .gridParentContainer {
   display: grid;
   justify-content: left;
   text-align: left;
   margin-left: 2em
 }
-
-.specialsButton {
+ .specialsButton {
   justify-content: right;
   margin-right: 4em
 }
-
-.gridParentContainer div:nth-child(2) {
+ .gridParentContainer div:nth-child(2) {
   display: grid;
   margin: 0
 }
-
-.gridParentContainer h1 {
+ .gridParentContainer h1 {
   line-height: 1;
   margin-top: .5em
 }
-
-.gridParentContainer h3 {
+ .gridParentContainer h3 {
   line-height: 0;
   color: #fff
 }
-
-.gridParentContainer p {
+ .gridParentContainer p {
   font-size: 18px;
   line-height: 1.5;
   color: #fff
 }
-
-.gridParentContainer button,
+ .gridParentContainer button,
 .specialsButton button {
   font-size: 18px;
   background-color: #f4ce14;
@@ -175,73 +141,60 @@ nav li a:hover {
   height: 60px;
   margin-bottom: 1em
 }
-
-.gridParentContainer button a,
+ .gridParentContainer button a,
 .specialsButton button a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
   font-family: Karla
 }
-
-.headerCopyHolder {
+ .headerCopyHolder {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   background-color: #6e6f6e
 }
-
-.headerCopyHolder div:nth-child(1) {
+ .headerCopyHolder div:nth-child(1) {
   grid-column: 1/span 6
 }
-
-.headerCopyHolder div:nth-child(2) {
+ .headerCopyHolder div:nth-child(2) {
   grid-column: 7/span 12;
   justify-content: center
 }
-
-.headerCopyHolder img {
+ .headerCopyHolder img {
   width: 325px;
   height: 325px;
   border-radius: 16px;
   margin: 2em 0 1em 0
 }
-
-main {
+ main {
   grid-area: main;
   display: grid
 }
-
-.grid {
+ .grid {
   display: grid
 }
-
-.specialsHeader {
+ .specialsHeader {
   display: grid;
   grid-column: 1/span 12;
   padding: 2em 0 0 0
 }
-
-.specialsHeader h2 {
+ .specialsHeader h2 {
   font-family: Markazi;
   font-size: 40px;
   font-weight: 500px
 }
-
-.specialsHeader div:nth-child(1) {
+ .specialsHeader div:nth-child(1) {
   grid-column: 1/span 7
 }
-
-.specialsHeader div:nth-child(2) {
+ .specialsHeader div:nth-child(2) {
   grid-column: 8/12
 }
-
-.specialsCardContainerGrid {
+ .specialsCardContainerGrid {
   display: grid;
   grid-column: 1/span 12
 }
-
-.specialsCardContainer {
+ .specialsCardContainer {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -249,90 +202,73 @@ main {
   margin: 1em 0 1em 0;
   gap: 1em
 }
-
-.specialsCardContainer article {
+ .specialsCardContainer article {
   background-color: #edefee;
   border-radius: 16px;
   max-width: 28%;
   position: relative
 }
-
-.specialsCardContainer article img {
+ .specialsCardContainer article img {
   width: 100%;
   border-radius: 16px 16px 0 0
 }
-
-.specialsContent {
+ .specialsContent {
   padding: 1em;
   display: flex;
   flex-wrap: wrap
 }
-
-.specialsContent h4 {
+ .specialsContent h4 {
   line-height: 1.5
 }
-
-.specialsContent div:nth-child(1) {
+ .specialsContent div:nth-child(1) {
   justify-content: left;
   width: 60%;
   margin-bottom: .5em
 }
-
-.specialsContent div:nth-child(2) {
+ .specialsContent div:nth-child(2) {
   color: #ee9972
 }
-
-.specialsContent p {
+ .specialsContent p {
   line-height: 2
 }
-
-.specialsContent div:nth-child(3) p {
+ .specialsContent div:nth-child(3) p {
   line-height: 1.3
 }
-
-.specialsContent div:nth-child(3) {
+ .specialsContent div:nth-child(3) {
   margin-bottom: 2em
 }
-
-.specialsContent div:nth-child(4) {
+ .specialsContent div:nth-child(4) {
   position: absolute;
   bottom: 0;
   margin-bottom: .7em
 }
-
-.specialsContent a:link {
+ .specialsContent a:link {
   font-size: .7em;
   font-family: Karla, sans-serif;
   font-weight: 700;
   text-decoration: none;
   color: #333
 }
-
-.specialsContent a:hover {
+ .specialsContent a:hover {
   text-decoration: underline
 }
-
-.specialsContent div:nth-child(5) {
+ .specialsContent div:nth-child(5) {
   width: 70%
 }
-
-.specialsContent div:nth-child(6) img {
+ .specialsContent div:nth-child(6) img {
   width: 20%
 }
-
-.reviewsContentContainerGrid {
+ .reviewsContentContainerGrid {
   display: grid;
   grid-column: 1/span 12;
   background-color: #d9d9d9
 }
-
-.reviewsContentContainerGrid h2 {
+ .reviewsContentContainerGrid h2 {
   font-size: 40px;
   text-align: center;
   margin-top: 1em
 }
-
-.reviewsContentContainer {
+ .reviewsContentContainer {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -341,244 +277,196 @@ main {
   gap: .5em;
   padding: 2em 0 2em 0
 }
-
-.reviewsContentContainer article {
+ .reviewsContentContainer article {
   background-color: #fff;
   border-radius: 16px;
   max-width: 21%
 }
-
-.reviewsContent {
+ .reviewsContent {
   padding: 1em;
   display: flex;
   flex-wrap: wrap
 }
-
-.reviewsContent h4 {
+ .reviewsContent h4 {
   line-height: 1.5
 }
-
-.reviewsContent div:nth-child(1) {
+ .reviewsContent div:nth-child(1) {
   justify-content: left;
   width: 50%;
   margin-bottom: .5em
 }
-
-.reviewsContent div:nth-child(2) {
+ .reviewsContent div:nth-child(2) {
   color: #ee9972;
   justify-content: right;
   margin-bottom: .5em
 }
-
-.reviewsContent div:nth-child(2) img {
+ .reviewsContent div:nth-child(2) img {
   width: 100px
 }
-
-.reviewsContent p {
+ .reviewsContent p {
   line-height: 1.3;
   font-size: .7em
 }
-
-.reviewsContent div:nth-child(3) {
+ .reviewsContent div:nth-child(3) {
   width: 40%
 }
-
-.reviewsContent div:nth-child(3) img {
+ .reviewsContent div:nth-child(3) img {
   width: 50%
 }
-
-.reviewsContent div:nth-child(4) p {
+ .reviewsContent div:nth-child(4) p {
   justify-content: right
 }
-
-.reviewsContent div:nth-child(5) {
+ .reviewsContent div:nth-child(5) {
   flex-wrap: nowrap
 }
-
-.reviewsContent div:nth-child(6) img {
+ .reviewsContent div:nth-child(6) img {
   width: 20%
 }
-
-.aboutContentContainerGrid {
+ .aboutContentContainerGrid {
   display: grid;
   grid-column: 1/span 12;
   margin: 1em 0 1em 2em
 }
-
-.aboutContentContainer {
+ .aboutContentContainer {
   display: flex
 }
-
-.aboutContentContainer div:nth-child(1) {
+ .aboutContentContainer div:nth-child(1) {
   width: 50%;
   padding: 0 2em 1em 0
 }
-
-.aboutContentContainer div:nth-child(2) {
+ .aboutContentContainer div:nth-child(2) {
   margin: 0;
   flex: 1 1;
   margin-bottom: 6em
 }
-
-.aboutContentContainer div:nth-child(2) {
+ .aboutContentContainer div:nth-child(2) {
   margin: 1em 0 1em 0
 }
-
-.aboutContentContainer div:nth-child(2) img {
+ .aboutContentContainer div:nth-child(2) img {
   width: 45%
 }
-
-.aboutContentContainer div:nth-child(2) img:last-child {
+ .aboutContentContainer div:nth-child(2) img:last-child {
   transform: rotate(10deg);
   margin-top: -3em
 }
-
-.aboutContentContainer h2 {
+ .aboutContentContainer h2 {
   line-height: 2;
   margin-top: .5em;
   color: #f4ce14;
   font-size: 64px;
   font-weight: 500
 }
-
-.aboutContentContainer h3 {
+ .aboutContentContainer h3 {
   line-height: 0;
   margin-bottom: 1em
 }
-
-.aboutContentContainer p {
+ .aboutContentContainer p {
   font-size: 18px;
   line-height: 1.5
 }
-
-footer {
+ footer {
   grid-area: footer;
   background-color: #d9d9d9;
   font-size: 1.3rem;
   padding: 2em 0 4em 0
 }
-
-footer a:link {
+ footer a:link {
   color: #333;
   text-decoration: none
 }
-
-footer a:hover {
+ footer a:hover {
   text-decoration: underline
 }
-
-footer h4 {
+ footer h4 {
   font-family: Karla, sans-serif;
   font-weight: 600;
   margin-left: 1em
 }
-
-.footerHolder div:nth-child(1) {
+ .footerHolder div:nth-child(1) {
   width: 380px;
   padding: 1em
 }
-
-.footerHolder div:nth-child(1) img {
+ .footerHolder div:nth-child(1) img {
   width: 100%
 }
-
-.footerHolder {
+ .footerHolder {
   display: flex
 }
-
-.footerLinkContainer {
+ .footerLinkContainer {
   width: 250px
 }
-
-@media all and (min-width:480px) and (max-width:768px) {
+ @media all and (min-width:480px) and (max-width:768px) {
   .container {
     display: flex;
     flex-flow: column;
     padding: 0;
     margin: 0
   }
-
-  .headerCopyHolder {
+   .headerCopyHolder {
     padding: 0 0 0 1em
   }
-
-  header .navHolder {
+   header .navHolder {
     align-items: center;
     background-color: #fff;
     display: flex;
     gap: 0;
     justify-content: space-between
   }
-
-  nav ul {
+   nav ul {
     margin-right: 0
   }
-
-  nav li {
+   nav li {
     padding: .5em;
     font-size: 15px
   }
-
-  .gridParentContainer {
+   .gridParentContainer {
     margin: 0
   }
-
-  .gridParentContainer div:nth-child(2) {
+   .gridParentContainer div:nth-child(2) {
     margin: 0
   }
-
-  .headerCopyHolder {
+   .headerCopyHolder {
     display: flex;
     flex-direction: row;
     background-color: #6e6f6e
   }
-
-  .headerCopyHolder div:nth-child(1) {
+   .headerCopyHolder div:nth-child(1) {
     width: 40%
   }
-
-  .headerCopyHolder div:nth-child(2) {
+   .headerCopyHolder div:nth-child(2) {
     width: 50%;
     justify-content: right
   }
-
-  .specialsHeader {
+   .specialsHeader {
     display: flex;
     padding: 2em 0 0 0
   }
-
-  .specialsHeader div:nth-child(1) {
+   .specialsHeader div:nth-child(1) {
     width: 80%;
     padding: 0 .6em 0 1em
   }
-
-  .specialsHeader div:nth-child(2) {
+   .specialsHeader div:nth-child(2) {
     width: auto;
     align-items: end
   }
-
-  .specialsCardContainerGrid {
+   .specialsCardContainerGrid {
     display: flex
   }
-
-  .specialsCardContainer article {
+   .specialsCardContainer article {
     max-width: 45%;
     position: relative
   }
-
-  .reviewsContentContainerGrid {
+   .reviewsContentContainerGrid {
     display: grid;
     grid-column: 1/span 12;
     background-color: #d9d9d9
   }
-
-  .reviewsContentContainerGrid h2 {
+   .reviewsContentContainerGrid h2 {
     font-size: 40px;
     text-align: center;
     margin-top: 1em
   }
-
-  .reviewsContentContainer {
+   .reviewsContentContainer {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -587,291 +475,433 @@ footer h4 {
     gap: .5em;
     padding: 2em 0 2em 0
   }
-
-  .reviewsContentContainer article {
+   .reviewsContentContainer article {
     background-color: #fff;
     border-radius: 16px;
     max-width: 45%
   }
-
-  .reviewsContent {
+   .reviewsContent {
     padding: 1em;
     display: flex;
     flex-wrap: wrap
   }
-
-  .reviewsContent h4 {
+   .reviewsContent h4 {
     line-height: 1.5
   }
-
-  .reviewsContent div:nth-child(1) {
+   .reviewsContent div:nth-child(1) {
     justify-content: left;
     width: 50%;
     margin-bottom: .5em
   }
-
-  .reviewsContent div:nth-child(2) {
+   .reviewsContent div:nth-child(2) {
     color: #ee9972;
     justify-content: right;
     margin-bottom: .5em
   }
-
-  .reviewsContent div:nth-child(2) img {
+   .reviewsContent div:nth-child(2) img {
     width: 100px
   }
-
-  .reviewsContent p {
+   .reviewsContent p {
     line-height: 1.3;
     font-size: .7em
   }
-
-  .reviewsContent div:nth-child(3) {
+   .reviewsContent div:nth-child(3) {
     width: 40%
   }
-
-  .reviewsContent div:nth-child(3) img {
+   .reviewsContent div:nth-child(3) img {
     width: 50%
   }
-
-  .reviewsContent div:nth-child(4) p {
+   .reviewsContent div:nth-child(4) p {
     justify-content: right
   }
-
-  .reviewsContent div:nth-child(5) {
+   .reviewsContent div:nth-child(5) {
     flex-wrap: nowrap
   }
-
-  .reviewsContent div:nth-child(6) img {
+   .reviewsContent div:nth-child(6) img {
     width: 20%
   }
-
-  .aboutContentContainerGrid {
+   .aboutContentContainerGrid {
     display: grid;
     grid-column: 1/span 12;
     margin: 1em 0 1em 2em
   }
-
-  .aboutContentContainer {
+   .aboutContentContainer {
     display: flex;
     flex-direction: column-reverse
   }
-
-  .aboutContentContainer div:nth-child(1) {
+   .aboutContentContainer div:nth-child(1) {
     width: 90%
   }
-
-  footer {
+   footer {
     display: flex;
     flex-direction: column
   }
-
-  .footerHolder {
+   .footerHolder {
     display: flex;
     flex-direction: column
   }
-
-  .footerHolder div:nth-child(1) img {
+   .footerHolder div:nth-child(1) img {
     width: 100%
   }
 }
-
-@media all and (max-width:480px) {
+ @media all and (max-width:480px) {
   .container {
     display: flex;
     flex-flow: column;
     padding: 0;
     margin: 0
   }
-
-  .headerCopyHolder {
+   .headerCopyHolder {
     padding: 0 0 0 1em
   }
-
-  .gridParentContainer {
+   .gridParentContainer {
     margin: 0
   }
-
-  .grid {
+   .grid {
     display: flex;
     flex-direction: column
   }
-
-  .logo {
+   .logo {
     display: flex;
     margin: 0;
     padding: 1em 0 1em 0;
     justify-content: center
   }
-
-  .logo img {
+   .logo img {
     width: 200px
   }
-
-  header .navHolder {
+   header .navHolder {
     align-items: center;
     display: flex;
     justify-content: center;
     width: 90%
   }
-
-  nav {
+   nav {
     display: flex
   }
-
-  nav ul {
+   nav ul {
     display: flex;
     flex-direction: column;
     margin: 0 0 1em 0
   }
-
-  nav li {
+   nav li {
     padding: .5em;
     font-size: .6em
   }
-
-  .headerCopyHolder {
+   .headerCopyHolder {
     display: flex;
     flex-direction: column;
     background-color: #6e6f6e
   }
-
-  .gridParentContainer h3 {
+   .gridParentContainer h3 {
     line-height: 1
   }
-
-  .gridParentContainer button,
+   .gridParentContainer button,
   .specialsButton button {
     margin: 1em 0 1em 0
   }
-
-  .specialsHeader {
+   .specialsHeader {
     display: flex;
     flex-direction: column;
     padding: 1em 0 0 0
   }
-
-  .specialsHeader div:nth-child(1) {
+   .specialsHeader div:nth-child(1) {
     width: 100%;
     padding: 0 .6em 0 1em;
     justify-content: center
   }
-
-  .specialsHeader div:nth-child(2) {
+   .specialsHeader div:nth-child(2) {
     width: 100%;
     justify-content: center;
     text-align: center
   }
-
-  .specialsCardContainerGrid {
+   .specialsCardContainerGrid {
     display: flex
   }
-
-  .specialsCardContainer {
+   .specialsCardContainer {
     justify-content: center
   }
-
-  .specialsCardContainer article {
+   .specialsCardContainer article {
     max-width: 85%;
     position: relative
   }
-
-  .reviewsContentContainerGrid {
+   .reviewsContentContainerGrid {
     display: grid;
     grid-column: 1/span 12;
     background-color: #d9d9d9
   }
-
-  .reviewsContentContainerGrid h2 {
+   .reviewsContentContainerGrid h2 {
     font-size: 40px;
     text-align: center;
     margin-top: 1em
   }
-
-  .reviewsContentContainer {
+   .reviewsContentContainer {
     width: 100%;
     justify-content: center
   }
-
-  .reviewsContentContainer article {
+   .reviewsContentContainer article {
     background-color: #fff;
     border-radius: 16px;
     max-width: 90%
   }
-
-  .reviewsContent {
+   .reviewsContent {
     padding: 1em;
     display: flex;
     flex-wrap: wrap
   }
-
-  .reviewsContent h4 {
+   .reviewsContent h4 {
     line-height: 1.5
   }
-
-  .reviewsContent div:nth-child(1) {
+   .reviewsContent div:nth-child(1) {
     justify-content: left;
     width: 50%;
     margin-bottom: .5em
   }
-
-  .reviewsContent div:nth-child(2) {
+   .reviewsContent div:nth-child(2) {
     color: #ee9972;
     justify-content: right;
     margin-bottom: .5em
   }
-
-  .reviewsContent div:nth-child(2) img {
+   .reviewsContent div:nth-child(2) img {
     width: 100px
   }
-
-  .reviewsContent p {
+   .reviewsContent p {
     line-height: 1.3;
     font-size: .7em
   }
-
-  .reviewsContent div:nth-child(3) {
+   .reviewsContent div:nth-child(3) {
     width: 40%
   }
-
-  .reviewsContent div:nth-child(3) img {
+   .reviewsContent div:nth-child(3) img {
     width: 50%
   }
-
-  .reviewsContent div:nth-child(4) p {
+   .reviewsContent div:nth-child(4) p {
     justify-content: right
   }
-
-  .reviewsContent div:nth-child(5) {
+   .reviewsContent div:nth-child(5) {
     flex-wrap: nowrap
   }
-
-  .reviewsContent div:nth-child(6) img {
+   .reviewsContent div:nth-child(6) img {
     width: 20%
   }
-
-  .aboutContentContainerGrid {
+   .aboutContentContainerGrid {
     display: grid;
     grid-column: 1/span 12;
     margin: 1em 0 1em 2em
   }
-
-  .aboutContentContainer {
+   .aboutContentContainer {
     display: flex;
     flex-direction: column-reverse
   }
-
-  .aboutContentContainer div:nth-child(1) {
+   .aboutContentContainer div:nth-child(1) {
     width: 90%
   }
-
-  footer {
+   footer {
     display: flex;
     flex-direction: column
   }
-
-  .footerHolder {
+   .footerHolder {
     display: flex;
     flex-direction: column
   }
 }
-
+ /* Booking Page styles */
+ /* FORM STYLING /////////////////////////////////// */
+/*
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+}
+ .formInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+  margin-top: 1em;
+}
+ .form-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+ .form-field select,
+.form-field .form-required-field {
+  flex: 1;
+}
+ .form-field.form-terms {
+  align-self: flex-end;
+  font-size: 1.2rem;
+  gap: 0;
+}
+ .form-terms input {
+  width: 5rem;
+  accent-color: var(--primary-green);
+}
+ input,
+select {
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: 1rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  width: 100%;
+}
+ select {
+  background-color: var(--highlight-gray);
+}
+ input[type="text"] {
+  cursor: text;
+}
+ input[type="submit"] {
+  margin-top: 1em;
+  align-self: flex-end;
+  border: none;
+  width: 50%;
+}
+ input:focus,
+select:focus {
+  outline: none;
+  border: 2px solid var(--primary-yellow);
+}
+ input[type="submit"]:disabled {
+  background-color: var(--highlight-gray);
+  cursor: not-allowed;
+}
+ .invalid-input {
+  border: 2px solid red;
+}
+ .error-msg {
+  color: red;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+ .invalid-input:focus+.error-msg {
+  display: none;
+}
+ sup {
+  color: red;
+}
+*/
+.headCenter{
+  text-align: center;
+}
+ .formContainer {
+  display: flex;
+  flex-direction: column;
+  background: #ee9972;
+ }
+ .formContainer input {
+  border-radius: 6px;
+  padding: .5em;
+  width: 30em;
+ }
+ .dateOptions {
+   display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(2, 3fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-items: center;
+ }
+ .dateOptions div {
+   padding: 1em;
+   border: 1px solid #6e6f6e;
+  border-radius: 12px;
+ }
+ .dateOptions div:nth-child(3) {
+   padding: 1em;
+   border: 0;
+ }
+ form {
+  margin:1em auto 1em auto;
+  width:80%;
+  font-family: Karla, sans-serif;
+}
+ .formHolder {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  font-size: 2rem;
+  }
+   .div1 { grid-area: 1 / 1 / 3 / 2; }
+  .div2 { grid-area: 1 / 2 / 3 / 3; }
+  .div3 { grid-area: 3 / 1 / 11 / 3; }
+   .alignCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+  .alignCenter h2 {
+    font-family: Karla, sans-serif;
+    font-size: 1.9rem;
+    line-height: 1.5;
+    margin: 1em 0 1em 0;
+   }
+   .formHolder label, input, select {
+    display: flex;
+    flex-direction: column;
+     }
+    .div1{
+      border: 4px solid #333;
+      border-radius: 12px;
+      padding: 8px;
+    }
+    .div1 label, input,  .div2 label, select{
+      align-items: center;
+      margin:0 auto;
+    }
+    .div2{
+      background: url('../html-files/assets/group.png');
+       background-position: 30px 40px;
+      background-repeat: no-repeat;
+     }
+    .div2 div:nth-child(1),.div2 div:nth-child(2){
+      border: 4px solid #333;
+      border-radius: 12px;
+      padding: 8px;
+     }
+    .div2 div:nth-child(1){
+       margin-bottom: 1em;
+     }
+   .div3 input, textarea {
+    padding: 1rem;
+    border: 1px solid #000;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 1.6rem;
+    width: 20em;
+       }
+      .div3 button{
+        margin-top: 1em;
+      }
+       select {
+        background-color: var(--highlight-gray);
+      }
+       input[type="text"] {
+        cursor: text;
+      }
+       input[type="submit"] {
+        margin-top: 1em;
+        align-self: flex-end;
+        border: none;
+        width: 50%;
+      }
+       input:focus,
+      select:focus {
+        outline: none;
+        border: 2px solid var(--primary-yellow);
+      }
+       input[type="submit"]:disabled {
+        background-color: var(--highlight-gray);
+        cursor: not-allowed;
+      }
+       .invalid-input:focus+.error-msg {
+        display: none;
+      }

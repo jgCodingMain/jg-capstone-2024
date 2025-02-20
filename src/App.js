@@ -1,17 +1,52 @@
 
 import './App.css';
-import Header from '../src/components/homepage/Header'
-import Main from './Main';
-import Footer from './Footer';
-import {Routes,Route, Link} from 'react-router-dom';
+
+
+
+import React from 'react';
+import Homepage from './Homepage';
+import BookingPage from './BookingPage';
+import { BrowserRouter, Routes, Route,Link} from "react-router-dom";
+
+
+
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
+<>
+<BrowserRouter>
+ <header>
+      <div className="grid">
+        <div className="logo">
+          <img src="assets/Logo.svg" alt="Company Logo" />
+        </div>
+        <div className="navHolder">
+
+        <nav>
+      <ul>
+        <li>
+          <Link to="/">Homepage</Link>
+        </li>
+        <li>
+          <Link to="/booking">Booking Page</Link>
+        </li>
+      </ul>
+
+    </nav>
+
+
+        </div>
+      </div>
+
+    </header>
+
+
+<Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
+    </BrowserRouter>
+</>
   );
 }
 

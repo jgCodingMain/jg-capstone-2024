@@ -1,30 +1,41 @@
 
-import {Routes,Route, Link} from 'react-router-dom';
+import React from 'react';
 
-const Nav = () => {
-  return (
-    <nav>
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import BookingPage from "./BookingPage";
+import Homepage from "./Homepage";
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Nav() {
+
+    return (
+
+
+      <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Homepage</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/booking">Booking Page</Link>
         </li>
       </ul>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<About />} />
-      </Routes>
     </nav>
 
+    );
 
-
-  );
-};
+}
 
 export default Nav;
