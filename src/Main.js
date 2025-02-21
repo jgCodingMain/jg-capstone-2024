@@ -1,22 +1,14 @@
-import Hero from "./components/homepage/Hero";
-import Specials from "../src/components/homepage/Specials";
-import Reviews from "../src/components/homepage/Reviews";
-import About from "../src/components/homepage/About";
+import Hero from "./homepageComponents/Hero";
+import Specials from "./homepageComponents/homepage/Specials";
+import Reviews from "./homepageComponents/homepage/Reviews";
+import About from "./homepageComponents/homepage/About";
 
 
 function Main() {
 
 
 
-// Define your reducer function
-const timesReducer = (state, action) => {
-    switch (action.type) {
-        case 'UPDATE_TIMES':
-            return action.payload; // Update the state with new available times
-        default:
-            return state; // Return the current state if no action matches
-    }
-};
+
 
     return (
         <main>

@@ -5,7 +5,7 @@ import './App.css';
 
 import React from 'react';
 import Homepage from './Homepage';
-import BookingPage from './BookingPage';
+import BookingPage from './bookingComponents/BookingPage';
 import { BrowserRouter, Routes, Route,Link} from "react-router-dom";
 
 

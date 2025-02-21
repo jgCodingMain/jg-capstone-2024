@@ -1,9 +1,9 @@
 
 import './App.css';
 
-import Main from './Main';
+import Main from './components/Main';
 
-import Footer from './Footer';
+import Footer from './components/Footer';
 
 
 
