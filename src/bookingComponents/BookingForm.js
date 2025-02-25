@@ -19,19 +19,24 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
     lastname: '',
     phone: '',
     email: '',
-    requests: ''
+    requests:''
     // Add other fields as necessary
 });
   const [errors, setErrors] = useState({});
-
   const handleDateChange = async (event) => {
-    const selectedDate = new Date(event.target.value);
+    const selectedDate = new Date(event.target.value); // Convert input value to Date object
     setDate(selectedDate.toISOString().slice(0, 10)); // Update the local date state
 
     // Fetch new available times based on the selected date
-    const newTimes = await fetchAPI(selectedDate); // Use await to fetch data
-
+    const newTimes = await fetchAPI(selectedDate); // Fetch available times
     updateTimes(newTimes); // Update the available times in the parent component
+
+    // Update formData with the selected date
+    setFormData({
+        ...formData,
+        date: selectedDate.toISOString().slice(0, 10), // Ensure the date is stored in the correct format
+    });
+
 };
 // Handle input changes
 const handleChange = (event) => {
@@ -71,7 +76,14 @@ const handleChange = (event) => {
           <div className="formHolder">
               <div className="div1">
                   <label htmlFor="res-date">Choose date</label>
-                  <input type="date" value={date} onChange={handleDateChange} />
+                  <input
+                    name="date"
+                    type="date"
+                    id="res-date"
+                    value={date} // Bind the input value to the date state
+                    onChange={handleDateChange} // Use the handleDateChange function
+                    required
+                />
               </div>
 
               <div className="div2">
@@ -103,8 +115,13 @@ const handleChange = (event) => {
           <h2>Contact Details</h2>
 
                 <label htmlFor="firstname"> First Name</label>
-                <input type="text"
-        id="firstname" name="firstname"  value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
+                <input
+                    type="text"
+                    name="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
+                    required
+                />
           {errors.firstname && <p>{errors.firstname}</p>}
 
                 <label htmlFor="lastname"> Last Name</label>
