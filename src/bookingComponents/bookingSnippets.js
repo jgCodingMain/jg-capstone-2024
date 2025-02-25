@@ -362,3 +362,21 @@ const BookingPage = () => {
 }
 
 export default BookingPage;
+
+
+
+const newErrors = {};
+
+// Basic validation
+if (!partysize) newErrors.partysize = 'Party size is required';
+if (!firstname) newErrors.firstname = 'First Name is required';
+if (!lastname) newErrors.lastname = 'Last Name is required';
+if (!phone) newErrors.phone = 'Phone is required';
+if (!email) newErrors.email = 'Email is required';
+
+setErrors(newErrors);
+
+if (Object.keys(newErrors).length === 0) {
+    // Form is valid, submit data
+    alert('Thank you for your reservation!');
+}

@@ -6,6 +6,7 @@ import './App.css';
 import React from 'react';
 import Homepage from './Homepage';
 import BookingPage from './bookingComponents/BookingPage';
+import ConfirmedBooking from './bookingComponents/ConfirmedBooking';
 import { BrowserRouter, Routes, Route,Link} from "react-router-dom";
 
 
@@ -30,6 +31,7 @@ function App() {
         <li>
           <Link to="/booking">Booking Page</Link>
         </li>
+
       </ul>
 
     </nav>
@@ -44,6 +46,7 @@ function App() {
 <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
       </Routes>
     </BrowserRouter>
 </>

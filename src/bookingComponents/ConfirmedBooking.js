@@ -4,7 +4,6 @@ import '../Booking.css';
 import { submitAPI,fetchAPI } from './api'
 import Footer from '../components/Footer';
 import BookingForm from './BookingForm';
-import { useNavigate } from 'react-router-dom';
 
 
 
@@ -30,7 +29,6 @@ const initialTimes = [
     '10:00AM', '11:00AM', '12:00PM'
 ];
 
-
 export default function BookingPage() {
     const [availableTimes, dispatch] = useReducer(availableTimesReducer, initialTimes);
     const [selectedDate, setSelectedDate] = useState(new Date()); // State for selected date
@@ -49,22 +47,13 @@ export default function BookingPage() {
     useEffect(() => {
         fetchAvailableTimes(selectedDate); // Fetch available times for the selected date
     }, [selectedDate]); // Dependency array includes selectedDate
-    const navigate = useNavigate();
 
-    const submitForm = async (formData) => {
-        const response = await submitAPI(formData);
-        if (response) {
-            navigate('/confirmed-booking');
-        }
-    };
     return (
         <>
             <BookingForm
                 availableTimes={availableTimes}
                 updateTimes={updateTimes}
-                setDate={setSelectedDate}
-                onSubmit={submitForm}
-                 // Pass setSelectedDate to BookingForm
+                setDate={setSelectedDate} // Pass setSelectedDate to BookingForm
             />
             <Footer />
         </>

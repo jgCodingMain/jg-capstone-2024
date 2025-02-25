@@ -11,16 +11,35 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [requests, setRequests] = useState('');
+  const [formData, setFormData] = useState({
+    date: '',
+    partysize :'',
+    time: '',
+    firstname : '',
+    lastname: '',
+    phone: '',
+    email: '',
+    requests: ''
+    // Add other fields as necessary
+});
   const [errors, setErrors] = useState({});
 
   const handleDateChange = async (event) => {
     const selectedDate = new Date(event.target.value);
-    setDate(selectedDate.toISOString().slice(0, 10));
+    setDate(selectedDate.toISOString().slice(0, 10)); // Update the local date state
 
     // Fetch new available times based on the selected date
-    const newTimes = fetchAPI(selectedDate); // No need for await since it's local
-    console.log(newTimes); // Check the output
+    const newTimes = await fetchAPI(selectedDate); // Use await to fetch data
+
     updateTimes(newTimes); // Update the available times in the parent component
+};
+// Handle input changes
+const handleChange = (event) => {
+  const { name, value } = event.target;
+  setFormData({
+      ...formData,
+      [name]: value,
+  });
 };
   const handleSubmit = (event) => {
       event.preventDefault();
@@ -39,6 +58,11 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
           // Form is valid, submit data
           alert('Thank you for your reservation!');
       }
+       // State to hold form data
+
+
+  //onSubmit(formData); // Call the submitForm function with form data
+
   };
 
   return (
@@ -104,7 +128,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
                 </div>
 
             <div>
-            <button type="submit" className="submitBtn" aria-label="Confirm Reservation">Book Now</button>
+            <button type="submit" className="submitBtn" aria-label="Confirm Reservation" >Book Now</button>
             </div>
 
 </div>
