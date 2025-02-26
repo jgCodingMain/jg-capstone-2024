@@ -192,6 +192,12 @@ input[type="submit"]:disabled {
  .invalid-input:focus+.error-msg {
   display: none;
 }
+
+/* Confirmed Booking Page */
+.confirmedBooking {
+  width: 60%;
+  margin: 0 auto 1em auto;
+}
  /**
  * Basic CSS Media Query Template
  * TODO: I should probably use Sass...

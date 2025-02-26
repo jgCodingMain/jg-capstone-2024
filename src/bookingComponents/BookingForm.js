@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import ConfirmedBooking from './ConfirmedBooking';
 import { submitAPI,fetchAPI } from './api'
 
 const BookingForm = ({ availableTimes, updateTimes }) => {
@@ -11,6 +11,8 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [requests, setRequests] = useState('');
+  const [ newErrors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false); // State to track submission
   const [formData, setFormData] = useState({
     date: '',
     partysize :'',
@@ -22,7 +24,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
     requests:''
     // Add other fields as necessary
 });
-  const [errors, setErrors] = useState({});
+
   const handleDateChange = async (event) => {
     const selectedDate = new Date(event.target.value); // Convert input value to Date object
     setDate(selectedDate.toISOString().slice(0, 10)); // Update the local date state
@@ -50,25 +52,43 @@ const handleChange = (event) => {
       event.preventDefault();
       const newErrors = {};
 
+      // Gather form data from state
+    const { partysize, firstname, lastname, phone, email } = formData;
+
       // Basic validation
       if (!partysize) newErrors.partysize = 'Party size is required';
       if (!firstname) newErrors.firstname = 'First Name is required';
       if (!lastname) newErrors.lastname = 'Last Name is required';
-      if (!phone) newErrors.phone = 'Phone is required';
-      if (!email) newErrors.email = 'Email is required';
+
+     // Phone number validation (allowing dashes)
+    const cleanedPhone = phone.replace(/-/g, ''); // Remove dashes
+    if (!phone) {
+        newErrors.phone = 'Phone is required';
+    } else if (cleanedPhone.length !== 10) { // Check if cleaned phone has 10 digits
+        newErrors.phone = 'Phone number must be 10 digits';
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format check
+    if (!email) {
+        newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(email)) {
+        newErrors.email = 'Email is not valid';
+    }
 
       setErrors(newErrors);
 
       if (Object.keys(newErrors).length === 0) {
           // Form is valid, submit data
-          alert('Thank you for your reservation!');
+
+          setIsSubmitted(true); // Set submission state to true
       }
-       // State to hold form data
-
-
-  //onSubmit(formData); // Call the submitForm function with form data
-
   };
+
+  // Render the ConfirmedBooking component if the form is submitted
+  if (isSubmitted) {
+      return <ConfirmedBooking formData={formData} />;
+  }
 
   return (
       <form onSubmit={handleSubmit}>
@@ -89,20 +109,24 @@ const handleChange = (event) => {
               <div className="div2">
                   <div>
                       <label htmlFor="partysize">Select Party Size</label>
-                      <select name="partysize" value={partysize} onChange={(e) => setPartysize(e.target.value)}>
+                      <select name="partysize"
+
+                    value={formData.partysize}
+                    onChange={handleChange}>
                           <option value="">Select...</option>
                           {[1, 2, 3, 4, 5, 6, 7].map(size => (
                               <option key={size} value={size}>{size}</option>
                           ))}
                       </select>
-                      {errors.partysize && <p>{errors.partysize}</p>}
+                      { newErrors.partysize && <p>{ newErrors.partysize}</p>}
                   </div>
                   <div>
                       <label htmlFor="res-time">Select a Time</label>
                       <select
                           id="res-time"
-                          value={time}
-                          onChange={(e) => setTime(e.target.value)}
+                          name="time"
+                          value={formData.time}
+                          onChange={handleChange}
                       >
                           {availableTimes.map((timeOption, index) => (
                               <option key={index} value={timeOption}>{timeOption}</option>
@@ -120,28 +144,36 @@ const handleChange = (event) => {
                     name="firstname"
                     value={formData.firstname}
                     onChange={handleChange}
-                    required
+
                 />
-          {errors.firstname && <p>{errors.firstname}</p>}
+          { newErrors.firstname && <p>{ newErrors.firstname}</p>}
 
                 <label htmlFor="lastname"> Last Name</label>
                 <input type="text"
-        id="lastname" name="lastname"  value={lastname} onChange={(e) => setLastname(e.target.value)}/>
-          {errors.lastname && <p>{errors.lastname}</p>}
+        id="lastname"    name="lastname"
+        value={formData.lastname}
+        onChange={handleChange} />
+          { newErrors.lastname && <p>{ newErrors.lastname}</p>}
 
                 <label htmlFor="phone">Phone or Cell Number</label>
                 <input type="text"
-        id="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
-          {errors.phone && <p>{errors.phone}</p>}
+        id="phone"   name="phone"
+        value={formData.phone}
+        onChange={handleChange}/>
+          { newErrors.phone && <p>{ newErrors.phone}</p>}
 
                 <label htmlFor="email">Email</label>
                 <input type="text"
-        id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-          {errors.email && <p>{errors.email}</p>}
+        id="email"    name="email"
+        value={formData.email}
+        onChange={handleChange}/>
+          { newErrors.email && <p>{ newErrors.email}</p>}
 
 <div className="specialRequest">
                 <label htmlFor="requests"> Special Requests</label>
-                <textarea type="textarea"  id="requests" name="requests" value={requests} onChange={(e) => setRequests(e.target.value)}></textarea>
+                <textarea type="textarea"  id="requests"    name="requests"
+                    value={formData.requests}
+                    onChange={handleChange}></textarea>
                 </div>
 
             <div>
