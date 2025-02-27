@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import ConfirmedBooking from './ConfirmedBooking';
 import { submitAPI,fetchAPI } from './api'
 
-const BookingForm = ({ availableTimes, updateTimes }) => {
+const BookingForm = ({ availableTimes, updateTimes }) => { // he code snippet you provided defines a functional component in React called BookingForm. Here's a breakdown of what it does:
+
+    Component Declaration: const BookingForm = ({ availableTimes, updateTimes }) => { declares a functional component named BookingForm.
+    Props Destructuring: The curly braces { availableTimes, updateTimes } indicate that the component is expecting two props:
+        availableTimes: This likely represents an array or list of times that are available for booking.
+        updateTimes: This is likely a function that will be used to update the available times, possibly after a booking is made or when the user selects a different date.
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [time, setTime] = useState('');
   const [partysize, setPartysize] = useState('');

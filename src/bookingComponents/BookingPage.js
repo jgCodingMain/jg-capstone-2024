@@ -5,6 +5,7 @@ import { submitAPI,fetchAPI } from './api'
 import Footer from '../components/Footer';
 import BookingForm from './BookingForm';
 import { useNavigate } from 'react-router-dom';
+import ConfirmedBooking from './ConfirmedBooking'; // Adjust the import based on your file structure
 
 
 
@@ -15,7 +16,6 @@ import { useNavigate } from 'react-router-dom';
 import React, { useReducer, useEffect, useState } from 'react';
 
 
-// Reducer function to manage available times
 const availableTimesReducer = (state, action) => {
     switch (action.type) {
         case 'UPDATE_TIMES':
@@ -26,13 +26,11 @@ const availableTimesReducer = (state, action) => {
 };
 
 // Define initial available times
-const initialTimes = [
-    '10:00AM', '11:00AM', '12:00PM'
-];
+const initialTimes = ['10:00AM', '11:00AM', '12:00PM'];
 
 
 export default function BookingPage() {
-    const [availableTimes, dispatch] = useReducer(availableTimesReducer, initialTimes);
+   const [availableTimes, dispatch] = useReducer(availableTimesReducer, initialTimes);
     const [selectedDate, setSelectedDate] = useState(new Date()); // State for selected date
 
     // Function to fetch available times from the API
@@ -45,11 +43,15 @@ export default function BookingPage() {
         dispatch({ type: 'UPDATE_TIMES', payload: newTimes });
     };
 
-    // Use useEffect to fetch available times for the selected date
+    const initializeTimes = async () => {
+        await fetchAvailableTimes(selectedDate); // Fetch available times for the selected date
+    };
+    // Use useEffect to initialize available times when the component mounts
     useEffect(() => {
-        fetchAvailableTimes(selectedDate); // Fetch available times for the selected date
-    }, [selectedDate]); // Dependency array includes selectedDate
-    const navigate = useNavigate();
+        initializeTimes(); // Call initializeTimes on mount
+    }, []); // Empty dependency array means this runs once on mount
+
+   const navigate = useNavigate();
 
     const submitForm = async (formData) => {
         const response = await submitAPI(formData);
@@ -57,6 +59,7 @@ export default function BookingPage() {
             navigate('/confirmed-booking');
         }
     };
+
     return (
         <>
             <BookingForm
@@ -64,9 +67,22 @@ export default function BookingPage() {
                 updateTimes={updateTimes}
                 setDate={setSelectedDate}
                 onSubmit={submitForm}
-                 // Pass setSelectedDate to BookingForm
             />
-            <Footer />
         </>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

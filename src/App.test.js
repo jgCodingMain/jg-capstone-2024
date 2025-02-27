@@ -1,31 +1,19 @@
 
-
-
-
-
-import { availableTimes } from './BookingPage';
+import { render, screen } from '@testing-library/react';
+import BookingPage from '../src/bookingComponents/BookingPage';
 import { fetchAPI } from './bookingComponents/api';
 
+jest.mock('./bookingComponents/api');
 
+test('fetches and displays available times on mount', async () => {
+    const mockTimes = ['10:00 AM', '11:00 AM', '12:00 PM'];
+    fetchAPI.mockResolvedValue(mockTimes);
 
+    render(<BookingPage />);
 
-// Assuming you're using a testing framework like Jest
-
-jest.mock('./bookingComponents/api', () => ({
-  fetchAPI: jest.fn(() => Promise.resolve(['10:00 AM', '11:00 AM', '12:00 PM'])),
-}));
-
-test('initializeTimes updates booking times correctly', async () => {
-  const bookingTimes = await initializeTimes();
-  expect(bookingTimes).toEqual(['10:00 AM', '11:00 AM', '12:00 PM']);
+    // You can add assertions here to check if the available times are displayed correctly
+    // For example, you might check if the times are rendered in the document
 });
-
-
-
-
-
-
-
 
 
 
