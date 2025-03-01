@@ -5,7 +5,7 @@ import { submitAPI,fetchAPI } from './api'
 import Footer from '../components/Footer';
 import BookingForm from './BookingForm';
 import { useNavigate } from 'react-router-dom';
-import ConfirmedBooking from './ConfirmedBooking'; // Adjust the import based on your file structure
+
 
 
 
@@ -56,7 +56,7 @@ export default function BookingPage() {
     const submitForm = async (formData) => {
         const response = await submitAPI(formData);
         if (response) {
-            navigate('/confirmed-booking');
+           navigate('/confirmed-booking');
         }
     };
 
@@ -68,6 +68,7 @@ export default function BookingPage() {
                 setDate={setSelectedDate}
                 onSubmit={submitForm}
             />
+            <Footer />
         </>
     );
 }

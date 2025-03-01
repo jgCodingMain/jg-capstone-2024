@@ -55,7 +55,7 @@ const handleChange = (event) => {
     const { partysize, firstname, lastname, phone, email } = formData;
 
       // Basic validation
-      if (!partysize) newErrors.partysize = 'Party size is required';
+     if (!firstname) newErrors.partysize = 'Party size is required';
       if (!firstname) newErrors.firstname = 'First Name is required';
       if (!lastname) newErrors.lastname = 'Last Name is required';
 
@@ -113,7 +113,7 @@ const handleChange = (event) => {
                     value={formData.partysize}
                     onChange={handleChange}>
                           <option value="">Select...</option>
-                          {[1, 2, 3, 4, 5, 6, 7].map(size => (
+                          {[2, 3, 4, 5, 6, 7].map(size => (
                               <option key={size} value={size}>{size}</option>
                           ))}
                       </select>
@@ -143,24 +143,26 @@ const handleChange = (event) => {
 
                 <label htmlFor="firstname"> First Name</label>
                 <input
-                    type="text"
+                    type="text"      required
                     name="firstname"
                     value={formData.firstname}
                     onChange={handleChange}
 
+
                 />
           { newErrors.firstname && <p>{ newErrors.firstname}</p>}
 
-                <label htmlFor="lastname"> Last Name</label>
-                <input type="text"
+                <label  required htmlFor="lastname"> Last Name</label>
+                <input required type="text"
         id="lastname"    name="lastname"
         value={formData.lastname}
-        onChange={handleChange} />
+        onChange={handleChange}
+        />
           { newErrors.lastname && <p>{ newErrors.lastname}</p>}
 
                 <label htmlFor="phone">Phone or Cell Number</label>
                 <input type="text"
-        id="phone"   name="phone"
+        id="phone"   name="phone"      required
         value={formData.phone}
         onChange={handleChange}/>
           { newErrors.phone && <p>{ newErrors.phone}</p>}
@@ -169,7 +171,8 @@ const handleChange = (event) => {
                 <input type="text"
         id="email"    name="email"
         value={formData.email}
-        onChange={handleChange}/>
+        onChange={handleChange}
+        required/>
           { newErrors.email && <p>{ newErrors.email}</p>}
 
 <div className="specialRequest">
@@ -180,7 +183,7 @@ const handleChange = (event) => {
                 </div>
 
             <div>
-            <button type="submit" className="submitBtn" aria-label="Confirm Reservation" >Book Now</button>
+            <button type="submit" className="submitBtn" aria-label="Confirm Reservation"  >Book Now</button>
             </div>
 
 </div>
