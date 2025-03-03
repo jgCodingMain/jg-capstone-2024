@@ -1,3 +1,10 @@
+import React from 'react';
+
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+
+
+
 function Footer() {
 
     return (
@@ -8,19 +15,19 @@ function Footer() {
         <div role="navigation" aria-label="Main" class="footerLinkContainer">
           <h4>Site Map</h4>
           <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">menu</a></li>
-            <li><a href="#">reservations</a></li>
-            <li><a href="#">order online</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Menu</a></li>
+            <li> <Link to="/booking">Reservations</Link></li>
+            <li><a href="#">Order online</a></li>
 
           </ul>
         </div>
         <div class="footerLinkContainer" role="navigation" aria-label="Contacts">
           <h4>Contact</h4>
           <ul>
-            <li><a href="#">address</a></li>
-            <li><a href="#">phone number</a></li>
+            <li><a href="#">Address</a></li>
+            <li><a href="#">Phone number</a></li>
             <li><a href="mailto:reservations@littlelemon.com?subject=Hello 😀">email</a></li>
           </ul>
         </div>
@@ -28,7 +35,7 @@ function Footer() {
           <h4>Social Media</h4>
           <ul>
             <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">instagram</a></li>
-            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">facebook</a></li>
+            <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">twitter</a></li>
             <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">tiktok</a></li>
           </ul>
