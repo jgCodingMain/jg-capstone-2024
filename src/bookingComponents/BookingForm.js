@@ -47,43 +47,54 @@ const handleChange = (event) => {
       [name]: value,
   });
 };
-  const handleSubmit = (event) => {
-      event.preventDefault();
-      const newErrors = {};
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const newErrors = {};
 
-      // Gather form data from state
-    const { partysize, firstname, lastname, phone, email } = formData;
+  // Gather form data from state
+  const { partysize, time, firstname, lastname, phone, email, requests } = formData;
 
-      // Basic validation
-     if (!firstname) newErrors.partysize = 'Party size is required';
-      if (!firstname) newErrors.firstname = 'First Name is required';
-      if (!lastname) newErrors.lastname = 'Last Name is required';
+  // Basic validation
+  if (!partysize) {
+      newErrors.partysize = 'Party size is required';
+  }
+  if (!time) {
+    newErrors.time = 'Time is required';
+}
+  if (!firstname) {
+      newErrors.firstname = 'First Name is required';
+  } else if (!/^[A-Za-z]+$/.test(firstname)) { // Check if firstname contains only letters
+      newErrors.firstname = 'First Name must contain only letters';
+  }
+  if (!lastname) {
+      newErrors.lastname = 'Last Name is required';
+  } else if (!/^[A-Za-z]+$/.test(lastname)) { // Check if lastname contains only letters
+      newErrors.lastname = 'Last Name must contain only letters';
+  }
 
-     // Phone number validation (allowing dashes)
-    const cleanedPhone = phone.replace(/-/g, ''); // Remove dashes
-    if (!phone) {
-        newErrors.phone = 'Phone is required';
-    } else if (cleanedPhone.length !== 10) { // Check if cleaned phone has 10 digits
-        newErrors.phone = 'Phone number must be 10 digits';
-    }
+  // Phone number validation (allowing dashes)
+  const cleanedPhone = phone.replace(/-/g, ''); // Remove dashes
+  if (!phone) {
+      newErrors.phone = 'Phone is required';
+  } else if (cleanedPhone.length !== 10) { // Check if cleaned phone has 10 digits
+      newErrors.phone = 'Phone number must be 10 digits';
+  }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format check
-    if (!email) {
-        newErrors.email = 'Email is required';
-    } else if (!emailRegex.test(email)) {
-        newErrors.email = 'Email is not valid';
-    }
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format check
+  if (!email) {
+      newErrors.email = 'Email is required';
+  } else if (!emailRegex.test(email)) {
+      newErrors.email = 'Email is not valid';
+  }
 
-      setErrors(newErrors);
+  setErrors(newErrors);
 
-      if (Object.keys(newErrors).length === 0) {
-          // Form is valid, submit data
-
-          setIsSubmitted(true); // Set submission state to true
-      }
-  };
-
+  if (Object.keys(newErrors).length === 0) {
+      // Form is valid, submit data
+      setIsSubmitted(true); // Set submission state to true
+  }
+};
   // Render the ConfirmedBooking component if the form is submitted
   if (isSubmitted) {
       return <ConfirmedBooking formData={formData} />;
@@ -134,7 +145,9 @@ const handleChange = (event) => {
                 ) : (
                     <option value="">No available times</option> // Handle case when no times are available
                 )}
+
             </select>
+            { newErrors.time && <p>{ newErrors.time}</p>}
           </div>
         </div>
 
@@ -152,7 +165,7 @@ const handleChange = (event) => {
                 />
           { newErrors.firstname && <p>{ newErrors.firstname}</p>}
 
-                <label  required htmlFor="lastname"> Last Name</label>
+                <label   htmlFor="lastname"> Last Name</label>
                 <input required type="text"
         id="lastname"    name="lastname"
         value={formData.lastname}
@@ -168,7 +181,7 @@ const handleChange = (event) => {
           { newErrors.phone && <p>{ newErrors.phone}</p>}
 
                 <label htmlFor="email">Email</label>
-                <input type="text"
+                <input type="email"
         id="email"    name="email"
         value={formData.email}
         onChange={handleChange}
@@ -179,7 +192,7 @@ const handleChange = (event) => {
                 <label htmlFor="requests"> Special Requests</label>
                 <textarea type="textarea"  id="requests"    name="requests"
                     value={formData.requests}
-                    onChange={handleChange}></textarea>
+                    onChange={handleChange} ></textarea>
                 </div>
 
             <div>

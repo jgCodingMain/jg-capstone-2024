@@ -12,6 +12,7 @@ const ConfirmedBooking = ({ formData }) => {
             <p>Thank you, {formData.firstname} {formData.lastname}, for your reservation.</p>
             <p><strong>Party Size:</strong> {formData.partysize}</p>
             <p><strong>Date:</strong> {formData.date}</p>
+            <p><strong>Time:</strong> {formData.time}</p>
             <p><strong>Phone:</strong> {formData.phone}</p>
             <p><strong>Email:</strong> {formData.email}</p>
         </div>
